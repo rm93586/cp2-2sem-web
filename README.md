@@ -1,6 +1,8 @@
 # cp2-2sem-web
+Segundo Checkpoint da disciplina de Responsive Web Development da FIAP.
 
-integrantes grupo challenge
+
+Integrantes do grupo (Challenge)
 
 RM93586 - William Barrence<br/>
 RM95489 - Andrea Madureira<br/>
