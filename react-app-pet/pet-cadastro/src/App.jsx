@@ -1,9 +1,10 @@
 import React from 'react'
+import PetCadastro from './components/petCadastro/PetCadastro'
 
 export default function App(){
     return (
         <> 
-            <h1>Cadastro de Pets</h1>   
+            <PetCadastro />   
         </>
     )
 }
