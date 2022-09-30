@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-
+import { Home, CadastroPet, Botao } from '../../style/styled'
 
 export default function PetCadastro(){
 
@@ -62,60 +62,56 @@ export default function PetCadastro(){
 }
 
 
-  return (
-    <>
-    
+return (
+  <Home>
+    <CadastroPet>
+      <div id="ErroCadastro"></div>
+      <div className='div_nome_pet'>
+      <label htmlfor='nome_pet'>Nome do Pet: </label>
+      <input type='text' id='nome_pet' name='nome_pet' placeholder='Amarela' onChange={(e) => setNomePet(e.target.value)}/>
+      </div>
 
-      <form className='cadastroPET' id='cadastroPET'>
-        <div id="ErroCadastro"></div>
-        <div className='div_nome_pet'>
-        <label htmlfor='nome_pet'>Nome do Pet: </label>
-        <input type='text' id='nome_pet' name='nome_pet' placeholder='Amarela' onChange={(e) => setNomePet(e.target.value)}/>
-        </div>
+      <div className='div_raca_pet'>
+      <label htmlfor='raca_pet'>Raça do Pet: </label>
+      <input type='text' id='raca_pet' name='raca_pet' placeholder='Sem Raça Definida' onChange={(e) => setRacaPet(e.target.value)}/>
+      </div>
 
-        <div className='div_raca_pet'>
-        <label htmlfor='raca_pet'>Raça do Pet: </label>
-        <input type='text' id='raca_pet' name='raca_pet' placeholder='Sem Raça Definida' onChange={(e) => setRacaPet(e.target.value)}/>
-        </div>
+      <div className='div_idade_pet'>
+      <label htmlfor='idade_pet'>Idade do Pet: </label>
+      <input type='text' id='idade_pet' name='idade_pet' placeholder='Ex:.. 2' maxLength="2" onChange={(e) => setIdadePet(e.target.value)}/>
+      </div>
 
-        <div className='div_idade_pet'>
-        <label htmlfor='idade_pet'>Idade do Pet: </label>
-        <input type='text' id='idade_pet' name='idade_pet' placeholder='Ex:.. 2' maxLength="2" onChange={(e) => setIdadePet(e.target.value)}/>
-        </div>
+      <div className='div_tamanho_pet'>
+      <label htmlfor='tamanho_pet'>Tamanho do Pet: </label>
+      <input type='text' id='tamanho_pet' name='tamanho_pet' placeholder='Ex:.. 120cm' onChange={(e) => setTamanhoPet(e.target.value)}/>
+      </div>
 
-        <div className='div_tamanho_pet'>
-        <label htmlfor='tamanho_pet'>Tamanho do Pet: </label>
-        <input type='text' id='tamanho_pet' name='tamanho_pet' placeholder='Ex:.. 120cm' onChange={(e) => setTamanhoPet(e.target.value)}/>
-        </div>
+      <div className='div_observacoes_pet'>
+      <label htmlfor='observacoes_pet'>Observações do Pet: </label>
+      <input type='text' id='observacoes_pet' name='observacoes_pet' placeholder='Arisca' onChange={(e) => setObservacoesPet(e.target.value)}/>
+      </div>
 
-        <div className='div_observacoes_pet'>
-        <label htmlfor='observacoes_pet'>Observações do Pet: </label>
-        <input type='text' id='observacoes_pet' name='observacoes_pet' placeholder='Arisca' onChange={(e) => setObservacoesPet(e.target.value)}/>
-        </div>
+      <div className='div_foto_pet'>
+      <label htmlfor='foto_pet'>Foto do Pet: </label>
+      <input type='file' id='foto_pet' name='foto_pet' accept='image/png, image/gif, image/jpeg' placeholder='Foto do Pet' onChange={(e) => setIdadePet(e.target.value)}/>
+      </div>
 
-        <div className='div_foto_pet'>
-        <label htmlfor='foto_pet'>Foto do Pet: </label>
-        <input type='file' id='foto_pet' name='foto_pet' accept='image/png, image/gif, image/jpeg' placeholder='Foto do Pet' onChange={(e) => setIdadePet(e.target.value)}/>
-        </div>
+      <div className='div_nome_dono'>
+      <label htmlfor='nome_dono'>Nome do Dono: </label>
+      <input type='text' id='nome_dono' name='nome_dono' placeholder='Jorginho' onChange={(e) => setNomeDono(e.target.value)}/>
+      </div>
 
-        <div className='div_nome_dono'>
-        <label htmlfor='nome_dono'>Nome do Dono: </label>
-        <input type='text' id='nome_dono' name='nome_dono' placeholder='Jorginho' onChange={(e) => setNomeDono(e.target.value)}/>
-        </div>
+      <div className='div_telefone_dono'>
+      <label htmlfor='telefone_dono'>Telefone do Dono: </label>
+      <input type='text' id='telefone_dono' name='telefone_dono' placeholder='Ex.: (11)97070-7070' maxLength="13" onChange={(e) => setTelefoneDono(e.target.value)}/>
+      </div>
 
-        <div className='div_telefone_dono'>
-        <label htmlfor='telefone_dono'>Telefone do Dono: </label>
-        <input type='text' id='telefone_dono' name='telefone_dono' placeholder='Ex.: (11)97070-7070' maxLength="13" onChange={(e) => setTelefoneDono(e.target.value)}/>
+      <Botao onClick={cadastrar}>Cadastrar</Botao>
+    </CadastroPet>
 
-        
-        </div>
-      </form>
-      <button onClick={cadastrar}>Cadastrar</button>
-    
-      
-      <div id='dados_do_pet'>
-      
-      {pet.map((tar, i)=>(
+
+    <div id='dados_do_pet'>
+        {pet.map((tar, i)=>(
             <>
                 <div className='dados_pet'>{i}</div>
                 <div className='dados_pet'>{tar.nomePet}</div>
@@ -127,15 +123,8 @@ export default function PetCadastro(){
                 <div className='dados_pet'>{tar.nomeDono}</div>
             </>
         ))}
+      </div>      
 
-      </div>
-
-      
-       
-      
-
-
-      
-    </>
+    </Home>
   )
 }
