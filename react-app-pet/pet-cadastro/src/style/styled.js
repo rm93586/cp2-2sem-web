@@ -2,11 +2,24 @@ import styled from 'styled-components'
 
 export const Home = styled.html`
     display: flex;
+    flex-direction: column;
     background: #bbdae0;
     min-height: 100vh;
-    justify-content: center;
-    flex-direction: column;
+
+    .titulos {
+        font-size: 3rem;
+        margin: 5px;
+        align-self: center;
+    }
+
+    #dados_do_pet {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 `;
+
 
 export const CadastroPet = styled.form`
     display: flex;
@@ -62,33 +75,42 @@ export const CartaoPet = styled.div`
     width: 30%;
     height: auto;
     background-color: #fff;
-    margin: auto;
+    margin: 10px;
     box-shadow: 0 0 25px #142d31;
     margin-top: 10px;
+    background: #F4F9BD;
 
     .div_cartão_pet {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
         padding: 5px;
         justify-content: flex-start;
         text-align: center;
         align-items: center;
+        
+        
     }
 
     .div_dados_pet {
         display: flex;
         flex-direction: column;
+        flex-wrap: wrap;
         padding: 5px;
         text-align: left;
         align-items: left;
         font-size: 16px;
-        font-weight: bold;
+        word-wrap: break-word;
+     
     }
 
     .dados_pet_fotoPet {
         width: 150px;
         height: 150px;
+    }
+
+    .txt_dados {
+        font-size: 1.3rem;
+        font-weight: bold;
     }
 
 `;

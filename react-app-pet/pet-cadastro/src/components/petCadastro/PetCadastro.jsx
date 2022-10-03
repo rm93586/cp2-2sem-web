@@ -1,15 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
-import { Home, CadastroPet, Botao } from '../../style/styled'
-import { CartaoPet } from '../../style/styled'
-
-
-
-
+import { Home, CadastroPet, Botao, CartaoPet } from '../../style/styled'
 
 
 export default function PetCadastro(){
 
+  //Use states para capturar os dados do formulário
   const [nomePet, setNomePet] = useState('')
   const [racaPet, setRacaPet] = useState('')
   const [idadePet, setIdadePet] = useState('')
@@ -52,27 +48,16 @@ export default function PetCadastro(){
     }
     return true
   }
+
   //----------------------------------------------
-
-
   // Função para capturar a imagem recebida e exibir no cartão
   function handleChange(e) {
       console.log(e.target.files);
       setFotoPet(URL.createObjectURL(e.target.files[0]));
   }
 
-  
-  const [pet, setPet] = useState([{
-    nomePet: 'Pretinho',
-    racaPet: 'Rottweiler',
-    idadePet: '2 anos',
-    tamanhoPet: '80cm',
-    observacoesPet: 'Dog esperto e de boa convivência',
-    fotoPet: 'fotinha',
-    telefoneDono: '4059-5522',
-    nomeDono: 'Juliano',
-  }
-  ])
+  //Lista de pets
+  const [pet, setPet] = useState([])
   
   const [nPet,setNPet] = useState({
     "nomePet":"",
@@ -121,6 +106,7 @@ export default function PetCadastro(){
 
 return (
   <Home>
+    <div className='titulos'>Cadastre seu Pet</div>
     <CadastroPet>
       <div id="ErroCadastro"></div>
       <div className='div_nome_pet'>
@@ -166,32 +152,31 @@ return (
       <Botao onClick={cadastrar}>Cadastrar</Botao>
     </CadastroPet>
 
-
+    <br/>
+    <div className='titulos'>Pets cadastrados</div>
     <div id='dados_do_pet'>
         {pet.map((tar, i)=>(
-            <>
             <CartaoPet>
             <div className='div_cartão_pet'>
               <div className='div_imagem_pet'>
                 <img src={tar.fotoPet} className='dados_pet_fotoPet' alt="Foto do Pet" width="100" height="100"/>
               </div>
               <div className='div_dados_pet'>
-                <div className='dados_pet_index'>{i}</div>
-                <div className='txt_dados_pet'>Dados do Pet </div>
+                <div className='txt_dados'>Dados do Pet </div>
                 <div className='dados_pet_nomePet'>Nome do Pet: {tar.nomePet}</div>
                 <div className='dados_pet_racaPet'>Raça do Pet: {tar.racaPet}</div>
                 <div className='dados_pet_idadePet'>Idade do Pet: {tar.idadePet}</div>
-                <div className='dados_pet_tamanhoPet'>Tamanho do Pet: {tar.tamanhoPet}</div>
+                <div className='dados_pet_tamanhoPet'>Tamanho do Pet: {tar.tamanhoPet}cm</div>
                 <br/>
-                <div className='txt_dados_dono'>Dados do dono </div>
+                <div className='txt_dados'>Dados do dono </div>
                 <div className='dados_pet_nomeDono'>Nome do Dono: {tar.nomeDono}</div>
                 <div className='dados_pet_telefoneDono'> Telefone do dono: {tar.telefoneDono}</div>
                 <br/>
-                <div className='txt_dados_pet_observacoesPet'>Observações sobre o Pet:<br/> {tar.observacoesPet}</div>
+                <div className='txt_dados'>Observações sobre o Pet:</div>
+                <div className='dados_pet_observacoesPet'>{tar.observacoesPet}</div>
               </div>
             </div>
             </CartaoPet>
-            </>
         ))}
       </div>      
 
