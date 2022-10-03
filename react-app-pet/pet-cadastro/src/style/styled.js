@@ -57,3 +57,38 @@ export const Botao = styled.button`
         transform: scale(1.05);
     }    
 `;
+
+export const CartaoPet = styled.div`	
+    width: 30%;
+    height: auto;
+    background-color: #fff;
+    margin: auto;
+    box-shadow: 0 0 25px #142d31;
+    margin-top: 10px;
+
+    .div_cartão_pet {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 5px;
+        justify-content: flex-start;
+        text-align: center;
+        align-items: center;
+    }
+
+    .div_dados_pet {
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        text-align: left;
+        align-items: left;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .dados_pet_fotoPet {
+        width: 150px;
+        height: 150px;
+    }
+
+`;
